@@ -1,0 +1,11 @@
+node_modules
+*.log*
+.next
+.env
+.env.development
+dist
+.DS_Store
+.husky
+lint-staged.config.js
+.prettierignore
+.prettierrc
