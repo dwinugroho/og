@@ -11,7 +11,7 @@
   },
   "engines": {
     "npm": "please-use-yarn",
-    "yarn": ">=1.22.19",
+    "yarn": ">=1.22.17",
     "node": ">=18.0.0 <19.0.0"
   },
   "dependencies": {
