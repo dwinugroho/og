@@ -1,12 +1,17 @@
 import { FC } from 'react';
 import { NextSeo, DefaultSeo, NextSeoProps, DefaultSeoProps } from 'next-seo';
 
+export const seo = {
+  title: 'Open Graph Generator by krafan',
+  description:
+    'Website dengan tujuan utama memudahkan anda dalam membuat gambar Open Graph yang menarik dan sesuai dengan situs web anda.',
+  titleTemplate: '%s | KRAFAN'
+};
+
 export const useNextSeoConfig = (
   props: NextSeoProps | DefaultSeoProps
 ): NextSeoProps | DefaultSeoProps => ({
-  title: 'NextJs Boilerplate by DwiNugroho',
-  description: 'This example uses more of the available config options.',
-  titleTemplate: '%s | DwiNugroho',
+  ...seo,
   ...props
 });
 
