@@ -4,9 +4,9 @@ import { NextSeo, DefaultSeo, NextSeoProps, DefaultSeoProps } from 'next-seo';
 const origin = process.env.NEXT_PUBLIC_ORIGIN;
 
 export const seo = {
-  title: 'Open Graph Generator by krafan',
+  title: 'Open Graph Image Generator by krafan',
   description:
-    'Website dengan tujuan utama memudahkan anda dalam membuat gambar Open Graph yang menarik dan sesuai dengan situs web anda.',
+    'Website dengan tujuan memudahkan kamu membuat gambar Open Graph yang menarik dengan mudah.',
   titleTemplate: '%s | KRAFAN'
 };
 
