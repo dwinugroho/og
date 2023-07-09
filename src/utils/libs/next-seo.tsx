@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { NextSeo, DefaultSeo, NextSeoProps, DefaultSeoProps } from 'next-seo';
 
-const origin = process.env.ORIGIN || 'http://127.0.0.1:3000';
+const origin = process.env.NEXT_PUBLIC_ORIGIN;
 
 export const seo = {
   title: 'Open Graph Generator by krafan',
