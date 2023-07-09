@@ -14,7 +14,7 @@ export const ogImage = `${origin}/api?${new URLSearchParams({
   title: seo.title,
   description: seo.description,
   tag: 'Open Graph Image Generator',
-  image: origin + '/img/krafan-400x400.jpg'
+  image: origin + '/img/krafanid-400x400.jpg'
 })}`;
 
 export const useNextSeoConfig = (
