@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
+
+/* @layer components {
+  .container {
+    @apply max-w-full xs:max-w-[430px] sm:max-w-[610px] md:max-w-[730px] lg:max-w-[990px] xl:max-w-[1140px] 2xl:max-w-[1140px];
+  }
+} */
+
 @tailwind utilities;
+
 
 :root {
   --foreground-rgb: 0, 0, 0;

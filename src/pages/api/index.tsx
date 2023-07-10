@@ -61,21 +61,23 @@ export default async function handler(req: NextRequest) {
             {query.tag && (
               <span
                 style={{ fontFamily: 'Mona' }}
-                tw="mb-4 bg-violet-200 text-violet-800 px-2 py-1 border border-violet-600 rounded-md"
+                tw="mb-4 bg-violet-200 text-violet-800 px-2 py-1 border border-violet-600 rounded-md text-xl"
               >
                 {query.tag}
               </span>
             )}
             <h1
-              style={{ fontFamily: 'Mona', lineHeight: '56px' }}
-              tw={`m-0 text-4xl ${textclass[query.theme]}`}
+              style={{ fontFamily: 'Mona', lineHeight: '72px' }}
+              tw={`m-0 ${query.image ? 'text-4xl' : 'text-5xl'} ${
+                textclass[query.theme]
+              }`}
             >
               {query.title}
             </h1>
             {query.description && (
               <p
-                style={{ lineHeight: '32px' }}
-                tw={`m-0 mt-3 text-xl ${descriptionclass[query.theme]}`}
+                style={{ lineHeight: '48px' }}
+                tw={`m-0 mt-3 text-2xl ${descriptionclass[query.theme]}`}
               >
                 {query.description}
               </p>
