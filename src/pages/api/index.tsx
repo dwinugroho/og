@@ -46,13 +46,9 @@ export default async function handler(req: NextRequest) {
       theme: searchParams.get('theme') ?? 'dark'
     };
 
-    let imageUrl = '';
-
     if (query.image) {
       const res: any = await fetch(query.image, { method: 'HEAD' });
-      if (res.headers.get('Content-Type').startsWith('image')) {
-        imageUrl = URL.createObjectURL(await res.blob());
-      } else {
+      if (!res.headers.get('Content-Type').startsWith('image')) {
         return new Response(`Failed to generate the image`, {
           status: 500
         });
@@ -97,7 +93,7 @@ export default async function handler(req: NextRequest) {
                 </p>
               )}
             </div>
-            {imageUrl && (
+            {query.image && (
               <div tw="flex items-center justify-center h-[400px] w-[400px] ml-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

@@ -60,8 +60,6 @@ export default function Home() {
       .finally(() => {
         setIsLoading(false);
       });
-
-    // setImageUrl(fullUrl);
   };
 
   return (
