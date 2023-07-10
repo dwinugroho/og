@@ -5,7 +5,8 @@ import {
   Button,
   Image,
   Snippet,
-  Text
+  Text,
+  Loading
 } from '@nextui-org/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import NextImage from 'next/image';
@@ -25,6 +26,9 @@ export default function Home() {
   } = useForm<IForm>();
 
   const [imageUrl, setImageUrl] = useState(() => '');
+  const [imageBlob, setImageBlob] = useState(() => '');
+  const [isLoading, setIsLoading] = useState(() => false);
+  const [isError, setIsError] = useState(() => false);
 
   const onSubmit: SubmitHandler<IForm> = (data) => {
     const queryparams = new URLSearchParams({
@@ -33,7 +37,31 @@ export default function Home() {
 
     const fullUrl = process.env.NEXT_PUBLIC_ORIGIN + '/api?' + queryparams;
 
-    setImageUrl(fullUrl);
+    setIsLoading(true);
+    setIsError(false);
+
+    fetch(fullUrl)
+      .then(async (res) => {
+        if (res.ok) {
+          return await res.blob();
+        } else {
+          throw new Error('Something went wrong');
+        }
+      })
+      .then((blob) => {
+        setImageUrl(fullUrl);
+        setImageBlob(URL.createObjectURL(blob));
+      })
+      .catch(() => {
+        setImageUrl('');
+        setImageBlob('');
+        setIsError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
+    // setImageUrl(fullUrl);
   };
 
   return (
@@ -106,13 +134,23 @@ export default function Home() {
           </Button>
         </form>
         <section className="w-full flex flex-col gap-8 lg:min-w-[640px]">
-          <div className="w-full aspect-[40/21] bg-gray-800 rounded-md border border-gray-600 overflow-hidden">
-            {imageUrl && (
+          <div className="w-full aspect-[40/21] bg-gray-800 rounded-md border border-gray-600 overflow-hidden relative">
+            {imageBlob && (
               <Image
-                src={imageUrl}
+                src={imageBlob}
                 alt="Open Graph Image Generator by Krafan"
                 objectFit="cover"
               />
+            )}
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-40">
+                <Loading size="lg" />
+              </div>
+            )}
+            {isError && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-40">
+                <p className="text-xl">Failed to generate the image</p>
+              </div>
             )}
           </div>
           {imageUrl && (
