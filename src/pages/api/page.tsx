@@ -43,9 +43,8 @@ export default async function handler(req: NextRequest) {
     const query = {
       title: searchParams.get('title') ?? 'Default Title',
       description: searchParams.get('description') ?? '',
-      tag: searchParams.get('tag') ?? '',
       image: searchParams.get('image') ?? '',
-      theme: (searchParams.get('theme') || '').toLowerCase() ?? 'dark'
+      theme: (searchParams.get('theme') ?? 'dark').toLowerCase()
     };
 
     const imageUrl = await verifyImage(query.image);
@@ -111,25 +110,15 @@ export default async function handler(req: NextRequest) {
           </div>
           <div
             style={{ zIndex: '999' }}
-            tw="flex items-center h-full w-full relative"
+            tw="flex flex-col items-center justify-center h-full w-full relative"
           >
-            <div tw="flex flex-col items-start w-[0%] grow">
-              {query.tag && (
-                <span
-                  style={{ fontFamily: 'Mona' }}
-                  tw="mb-4 bg-violet-200 text-violet-800 px-2 py-1 border border-violet-600 rounded-md text-xl"
-                >
-                  {query.tag}
-                </span>
-              )}
-              <h1
+            <div tw="flex flex-col items-center text-center">
+              <p
                 style={{ fontFamily: 'Mona', lineHeight: '72px' }}
-                tw={`m-0 ${imageUrl ? 'text-4xl' : 'text-5xl'} ${
-                  textclass[query.theme]
-                }`}
+                tw={`m-0 text-5xl ${textclass[query.theme]}`}
               >
                 {query.title}
-              </h1>
+              </p>
               {query.description && (
                 <p
                   style={{ lineHeight: '48px' }}
@@ -140,19 +129,16 @@ export default async function handler(req: NextRequest) {
               )}
             </div>
             {imageUrl && (
-              <div tw="flex items-center justify-center h-[400px] w-[400px] ml-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={imageUrl}
-                  alt={query.title}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                  }}
-                  tw="rounded-lg"
-                />
-              </div>
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={imageUrl}
+                alt={query.title}
+                style={{
+                  height: '400px',
+                  objectFit: 'cover'
+                }}
+                tw="rounded-lg h-[400px] max-w-[1000px] -mb-[300px] mt-[72px]"
+              />
             )}
           </div>
         </div>

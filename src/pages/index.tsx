@@ -6,7 +6,8 @@ import {
   Image,
   Snippet,
   Text,
-  Loading
+  Loading,
+  Radio
 } from '@nextui-org/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import NextImage from 'next/image';
@@ -16,6 +17,7 @@ export interface IForm {
   description?: string;
   image?: string;
   tag?: string;
+  theme?: string;
 }
 
 export default function Home() {
@@ -29,10 +31,20 @@ export default function Home() {
   const [imageBlob, setImageBlob] = useState(() => '');
   const [isLoading, setIsLoading] = useState(() => false);
   const [isError, setIsError] = useState(() => false);
+  const [theme, setTheme] = useState(() => 'dark');
 
   const onSubmit: SubmitHandler<IForm> = (data) => {
+    const object: any = {
+      ...data,
+      theme
+    };
+
+    for (const prop in object) {
+      if (!object[prop]) delete object[prop];
+    }
+
     const queryparams = new URLSearchParams({
-      ...data
+      ...object
     }).toString();
 
     const fullUrl = process.env.NEXT_PUBLIC_ORIGIN + '/api?' + queryparams;
@@ -127,6 +139,19 @@ export default function Home() {
             size="lg"
             width="100%"
           />
+          <Radio.Group
+            orientation="horizontal"
+            label="Theme"
+            defaultValue={theme}
+            onChange={(value) => setTheme(value)}
+          >
+            <Radio value="dark" color="secondary">
+              Dark
+            </Radio>
+            <Radio value="light" color="secondary">
+              Light
+            </Radio>
+          </Radio.Group>
           <Button type="submit" className="bg-blue-600" size="lg">
             Generate
           </Button>
