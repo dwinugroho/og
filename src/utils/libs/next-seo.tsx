@@ -13,7 +13,7 @@ export const seo = {
 export const ogImage = `${origin}/api/page?${new URLSearchParams({
   title: seo.title,
   description: seo.description,
-  image: origin + '/img/krafanid-400x400.jpg'
+  image: origin + '/img/krafan-cover.jpg'
 })}`;
 
 export const useNextSeoConfig = (
