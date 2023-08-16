@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Open Graph Image Generator 😎
 
-## Getting Started
+![Open Graph Image Generator](https://og.krafan.com/api?title=Open+Graph+Image+Generator&description=Generate+stunning+Open+Graph+images+effortlessly%21+The+Open+Graph+Image+Generator+lets+you+create+eye-catching+images+for+social+sharing.+Just+enter+your+title%2C+description%2C+and+image+link%2C+and+voil%C3%A0%21&image=https%3A%2F%2Fog.krafan.com%2Fimg%2Fkrafan.jpg&theme=dark)
 
-First, run the development server:
+Yo, welcome to the Open Graph Image Generator! 🚀 This thing makes whipping up Open Graph images a piece of cake. Just toss in your title, description, drop the link to your image, and bam! You got yourself a slick Open Graph image. We built this baby using Next.js and worked some magic with the @vercel/og library to make it happen.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Demo Time 🎉
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Peep the live demo over here: [og.krafan.com](https://og.krafan.com)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to Use 🤙
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Hop on over to [og.krafan.com](https://og.krafan.com).
+2. Throw in your title and a snazzy description for that Open Graph vibe.
+3. Toss in the link to the image you want to show off.
+4. Smash that "Generate" button to work our magic.
+5. Right-click the resulting image and hit "Save image as" to snag your Open Graph masterpiece (Or you can just grab the link from the bottom of the picture.).
 
-## Learn More
+## Getting Down and Dirty Locally 💻
 
-To learn more about Next.js, take a look at the following resources:
+If you wanna mess around with this project on your own machine, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Make sure you've got Node.js and yarn installed. If not, sort that out.
+2. Clone this repo: `git clone [https://github.com/username/repo.git](https://github.com/krafanid/og.git)`
+3. Pop open a terminal and navigate to the project directory: `cd og`
+4. Slap in the dependencies: `yarn install`
+5. Fire up the dev server: `yarn dev`
+6. Open your browser and cruise on over to: `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing - Let's Make Magic Together 🤝
 
-## Deploy on Vercel
+Hey, if you're feelin' the vibe and wanna toss in your two cents, we're all ears! Here's how you can dive in:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork this repo like a champ.
+2. Create a new branch: `git checkout -b feat/new-feature`
+3. Work your magic with whatever changes you've got in mind.
+4. Commit those changes: `git commit -m "Added some rad new feature"`
+5. Push 'em up to your branch on your repo: `git push origin feat/new-feature`
+6. Send us a pull request from your branch.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License - Go Crazy 🎉
+
+This project is licensed under the MIT License - check out the [LICENSE](LICENSE) file for more details.
+
+---
+
+Crafted with ❤️ by [Dwi Nugroho](https://github.com/DwiNugroho)
