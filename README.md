@@ -4,6 +4,13 @@
 
 Yo, welcome to the Open Graph Image Generator! 🚀 This thing makes whipping up Open Graph images a piece of cake. Just toss in your title, description, drop the link to your image, and bam! You got yourself a slick Open Graph image. We built this baby using Next.js and worked some magic with the @vercel/og library to make it happen.
 
+**Table of Contents**
+- [Demo Time 🎉](#demo-time-)
+- [How to Use 🤙](#how-to-use-)
+- [Getting Down and Dirty Locally 💻](#getting-down-and-dirty-locally-)
+- [Contributing - Let's Make Magic Together 🤝](#contributing---lets-make-magic-together-)
+- [License - Go Crazy 🎉](#license---go-crazy-)
+
 ## Demo Time 🎉
 
 Peep the live demo over here: [og.krafan.com](https://og.krafan.com)
