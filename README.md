@@ -21,7 +21,7 @@ Peep the live demo over here: [og.krafan.com](https://og.krafan.com)
 If you wanna mess around with this project on your own machine, follow these steps:
 
 1. Make sure you've got Node.js and yarn installed. If not, sort that out.
-2. Clone this repo: `git clone [https://github.com/username/repo.git](https://github.com/krafanid/og.git)`
+2. Clone this repo: `git clone https://github.com/krafanid/og.git`
 3. Pop open a terminal and navigate to the project directory: `cd og`
 4. Slap in the dependencies: `yarn install`
 5. Fire up the dev server: `yarn dev`
