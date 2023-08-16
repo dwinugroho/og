@@ -2,7 +2,7 @@
 
 ![Open Graph Image Generator](https://og.krafan.com/api?title=Open+Graph+Image+Generator&description=Generate+stunning+Open+Graph+images+effortlessly%21+The+Open+Graph+Image+Generator+lets+you+create+eye-catching+images+for+social+sharing.+Just+enter+your+title%2C+description%2C+and+image+link%2C+and+voil%C3%A0%21&image=https%3A%2F%2Fog.krafan.com%2Fimg%2Fkrafan.jpg&theme=dark)
 
-Yo, welcome to the Open Graph Image Generator! 🚀 This thing makes whipping up Open Graph images a piece of cake. Just toss in your title, description, drop the link to your image, and bam! You got yourself a slick Open Graph image. We built this baby using Next.js and worked some magic with the @vercel/og library to make it happen.
+Yo, welcome to the Open Graph Image Generator! 🚀 This thing makes whipping up Open Graph images a piece of cake. Just toss in your title, description, drop the link to your image, and bam! You got yourself a slick Open Graph image. I built this baby using [Next.js](https://nextjs.org/) and worked some magic with the [@vercel/og](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation) library to make it happen.
 
 **Table of Contents**
 - [Demo Time 🎉](#demo-time-)
