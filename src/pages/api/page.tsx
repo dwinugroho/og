@@ -47,8 +47,6 @@ export default async function handler(req: NextRequest) {
       theme: (searchParams.get('theme') ?? 'dark').toLowerCase()
     };
 
-    const imageUrl = await verifyImage(query.image);
-
     return new ImageResponse(
       (
         <div
@@ -128,10 +126,10 @@ export default async function handler(req: NextRequest) {
                 </p>
               )}
             </div>
-            {imageUrl && (
+            {query.image && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={imageUrl}
+                src={query.image}
                 alt={query.title}
                 style={{
                   height: '400px',

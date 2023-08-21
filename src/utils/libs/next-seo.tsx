@@ -10,10 +10,10 @@ export const seo = {
   titleTemplate: '%s | KRAFAN'
 };
 
-export const ogImage = `${origin}/api/page?${new URLSearchParams({
+export const ogImage = `${origin}/api?${new URLSearchParams({
   title: seo.title,
   description: seo.description,
-  image: origin + '/img/krafan-cover.jpg'
+  image: origin + '/img/krafanid-400x400.jpg'
 })}`;
 
 export const useNextSeoConfig = (
