@@ -48,8 +48,6 @@ export default async function handler(req: NextRequest) {
       theme: (searchParams.get('theme') || '').toLowerCase() ?? 'dark'
     };
 
-    const imageUrl = await verifyImage(query.image);
-
     return new ImageResponse(
       (
         <div
@@ -124,7 +122,7 @@ export default async function handler(req: NextRequest) {
               )}
               <h1
                 style={{ fontFamily: 'Mona', lineHeight: '72px' }}
-                tw={`m-0 ${imageUrl ? 'text-4xl' : 'text-5xl'} ${
+                tw={`m-0 ${query.image ? 'text-4xl' : 'text-5xl'} ${
                   textclass[query.theme]
                 }`}
               >
@@ -139,11 +137,11 @@ export default async function handler(req: NextRequest) {
                 </p>
               )}
             </div>
-            {imageUrl && (
+            {query.image && (
               <div tw="flex items-center justify-center h-[400px] w-[400px] ml-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={imageUrl}
+                  src={query.image}
                   alt={query.title}
                   style={{
                     width: '100%',

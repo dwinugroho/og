@@ -6,7 +6,6 @@ import Document, {
   NextScript,
   DocumentContext
 } from 'next/document';
-import { CssBaseline } from '@nextui-org/react';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -95,9 +94,8 @@ class MyDocument extends Document {
             name="msapplication-TileImage"
             content="/favicon/ms-icon-144x144.png"
           />
-          {CssBaseline.flush()}
         </Head>
-        <body>
+        <body className="bg-neutral-100 dark:bg-neutral-900">
           <Main />
           <NextScript />
         </body>

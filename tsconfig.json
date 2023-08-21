@@ -14,6 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
@@ -28,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".lintstagedrc.js"
+    ".lintstagedrc.js",
+    "svgr.config.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,16 +1,18 @@
 import { useState } from 'react';
-import {
-  Input,
-  Textarea,
-  Button,
-  Image,
-  Snippet,
-  Text,
-  Loading,
-  Radio
-} from '@nextui-org/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import NextImage from 'next/image';
+
+// components
+import {
+  Button,
+  Label,
+  TextInput,
+  Textarea,
+  Radio,
+  Spinner,
+  Tooltip
+} from 'flowbite-react';
+import { MainLayout } from '@/components/templates';
+import { Icon } from '@iconify/react';
 
 export interface IForm {
   title: string;
@@ -20,7 +22,7 @@ export interface IForm {
   theme?: string;
 }
 
-export default function Home() {
+export default function MyPage() {
   const {
     register,
     handleSubmit,
@@ -74,100 +76,126 @@ export default function Home() {
       });
   };
 
+  const copyToClipboard = async () => {
+    await navigator.clipboard.writeText(imageUrl);
+  };
+
   return (
-    <section className="w-full min-h-screen relative py-16 bg-black">
-      <NextImage
-        priority
-        src="/img/background.svg"
-        width={1600}
-        height={900}
-        alt="Krafan OG Image Generator"
-        className="w-full h-full object-cover absolute inset-0 opacity-80"
-      />
-      <section className="container relative">
-        <Text h1 b size={52} className="text-center">
-          Open Graph Image Generator
-        </Text>
-        <Text h1 b size={52} className="text-center">
-          by Krafan
-        </Text>
-      </section>
-      <main className="container flex flex-col-reverse lg:flex-row items-center gap-16 py-16 relative">
+    <MainLayout>
+      <section className="container flex flex-col-reverse lg:flex-row items-center gap-16 py-16 relative">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full flex flex-col gap-12"
+          className="w-full flex flex-col gap-6"
           autoComplete="none"
           autoCorrect="none"
         >
-          <section className="flex flex-col gap-2">
-            <Input
+          <div>
+            <div className="mb-2 block">
+              <Label color="default" htmlFor="title" value="Title" />
+            </div>
+            <TextInput
               {...register('title', { required: true })}
-              labelPlaceholder="Title"
-              size="lg"
-              width="100%"
+              id="title"
+              placeholder="Give Your Thing a Catchy Title"
+              type="text"
+              required
+              color={errors.title ? 'failure' : 'gray'}
+              helperText={
+                errors.title?.type === 'required' && (
+                  <>
+                    <span className="font-medium">Hey there!</span> You forgot
+                    to give your thing a catchy title.
+                  </>
+                )
+              }
             />
-            {errors.title?.type === 'required' && (
-              <p role="alert" className="text-sm text-red-900 ml-2">
-                Title is required
-              </p>
-            )}
-          </section>
-          <Textarea
-            {...register('description')}
-            labelPlaceholder="Description"
-            size="lg"
-          />
-          <section className="flex flex-col gap-2">
-            <Input
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label
+                color="default"
+                htmlFor="description"
+                value="Description"
+              />
+            </div>
+            <Textarea
+              {...register('description')}
+              id="description"
+              placeholder="Tell Us What's Cooking in a Few Words"
+              rows={4}
+            />
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label color="default" htmlFor="image" value="Image Url" />
+            </div>
+            <TextInput
               {...register('image', {
                 pattern:
                   /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/
               })}
-              labelPlaceholder="Image Url"
-              size="lg"
-              width="100%"
+              id="image"
+              placeholder="Give Your Thing a Catchy Title"
+              type="text"
+              color={errors.image ? 'failure' : 'gray'}
+              helperText={
+                errors.image?.type === 'pattern' && (
+                  <>
+                    <span className="font-medium">Hold up!</span> Make sure the
+                    URL you drop is a valid image URL.
+                  </>
+                )
+              }
             />
-            {errors.image?.type === 'pattern' && (
-              <p role="alert" className="text-sm text-red-900 ml-2">
-                Image must an url
-              </p>
-            )}
-          </section>
-          <Input
-            {...register('tag')}
-            labelPlaceholder="Tag"
-            size="lg"
-            width="100%"
-          />
-          <Radio.Group
-            orientation="horizontal"
-            label="Theme"
-            defaultValue={theme}
-            onChange={(value) => setTheme(value)}
-          >
-            <Radio value="dark" color="secondary">
-              Dark
-            </Radio>
-            <Radio value="light" color="secondary">
-              Light
-            </Radio>
-          </Radio.Group>
-          <Button type="submit" className="bg-blue-600" size="lg">
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label color="default" htmlFor="tag" value="Tag" />
+            </div>
+            <TextInput
+              {...register('tag')}
+              id="tag"
+              placeholder="Give Your Thing a Catchy Title"
+              type="text"
+              color="gray"
+            />
+          </div>
+          <fieldset className="flex max-w-md flex-col gap-4" id="radio">
+            <Label>Choose your favorite theme</Label>
+            <div className="flex gap-4">
+              {['dark', 'light'].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <Radio
+                    id={item}
+                    name={item}
+                    value={item}
+                    checked={item === theme}
+                    onChange={(event) => setTheme(event.target.value)}
+                  />
+                  <Label htmlFor={item} className="capitalize">
+                    {item}
+                  </Label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+          <Button type="submit" className="mt-4">
             Generate
           </Button>
         </form>
         <section className="w-full flex flex-col gap-8 lg:min-w-[640px]">
-          <div className="w-full aspect-[40/21] bg-gray-800 rounded-md border border-gray-600 overflow-hidden relative">
+          <div className="w-full aspect-[120/63]  bg-neutral-700 rounded-md relative overflow-hidden border border-neutral-400 dark:border-neutral-500">
             {imageBlob && (
-              <Image
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
                 src={imageBlob}
                 alt="Open Graph Image Generator by Krafan"
-                objectFit="cover"
+                className="w-full h-full object-cover"
               />
             )}
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-40">
-                <Loading size="lg" />
+                <Spinner aria-label="krafan load image" />
               </div>
             )}
             {isError && (
@@ -176,13 +204,27 @@ export default function Home() {
               </div>
             )}
           </div>
-          {imageUrl && (
-            <Snippet symbol="" tooltipColor="primary" className="bg-gray-900">
-              {imageUrl}
-            </Snippet>
-          )}
+          <section className="relative">
+            <TextInput
+              id="imageUrl"
+              type="text"
+              value={imageUrl}
+              placeholder="Here's Your Awesome Open Graph Image Link"
+              readOnly
+              disabled={!imageUrl}
+            />
+            {imageUrl && (
+              <Button
+                color="dark"
+                className="border-0 w-[40px] absolute right-[1px] top-[1px] z-20"
+                onClick={() => copyToClipboard()}
+              >
+                <Icon icon="ph:copy" width={20} height={20} />
+              </Button>
+            )}
+          </section>
         </section>
-      </main>
-    </section>
+      </section>
+    </MainLayout>
   );
 }
