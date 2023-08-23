@@ -49,7 +49,8 @@ export default function MyPage() {
       ...object
     }).toString();
 
-    const fullUrl = process.env.NEXT_PUBLIC_ORIGIN + '/api?' + queryparams;
+    const fullUrl =
+      process.env.NEXT_PUBLIC_ORIGIN + '/api/fuball?' + queryparams;
 
     setIsLoading(true);
     setIsError(false);

@@ -79,7 +79,7 @@ export default async function handler(req: NextRequest) {
               style={{ transform: 'skewX(-16deg)' }}
               tw={clsx(
                 'flex',
-                'absolute top-0 left-1 bottom-0 -right-25',
+                'absolute top-0 left-1 bottom-0 -right-26',
                 'bg-neutral-500'
               )}
             ></div>
