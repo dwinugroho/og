@@ -80,7 +80,7 @@ export default async function handler(req: NextRequest) {
               tw={clsx(
                 'flex',
                 'absolute top-0 left-1 bottom-0 -right-25',
-                'bg-cyan-700'
+                'bg-neutral-500'
               )}
             ></div>
             <div
