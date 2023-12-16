@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "gruntfuggly.todo-tree",
+    "vunguyentuan.vscode-postcss",
+    "unifiedjs.vscode-mdx",
+    "formulahendry.auto-rename-tag",
+    "formulahendry.auto-close-tag",
+    "ijs.reactnextjssnippets"
+  ]
+}
