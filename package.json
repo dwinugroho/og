@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "next": "14.0.4",
@@ -33,11 +32,11 @@
     "node": ">=18.0.0 <19.0.0"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,mjs,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write --ignore-path .gitignore ."
     ],
-    "**/*.{css,scss,md,html,json}": [
+    "src/**/*.{css,scss,md,html,json}": [
       "prettier --write --ignore-path .gitignore ."
     ]
   },
