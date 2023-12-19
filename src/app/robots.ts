@@ -6,11 +6,11 @@ const robots = (): MetadataRoute.Robots => ({
   rules: [
     {
       userAgent: '*',
-      allow: ['/'],
-      disallow: ['/404', '/500', '/api/*']
+      allow: ['/**/*', '/api/**/*'],
+      disallow: ['/404', '/500']
     }
   ],
-  sitemap: `${site.url}/sitemap.xml`,
+  // sitemap: `${site.url}/sitemap.xml`,
   host: `${site.url}`
 })
 

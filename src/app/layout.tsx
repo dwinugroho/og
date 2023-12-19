@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import localFont from 'next/font/local'
 
 import '@/styles/globals.css'
 import { Navbar } from '@/components/organisms/navbar'
@@ -81,6 +82,16 @@ export const viewport: Viewport = {
   ]
 }
 
+const MonaFont = localFont({
+  src: '../../public/fonts/mona-sans/Mona-Sans.ttf',
+  variable: '--font-mona-sans'
+})
+
+const HubotFont = localFont({
+  src: '../../public/fonts/hubot-sans/Hubot-Sans.ttf',
+  variable: '--font-hubot-sans'
+})
+
 export default function RootLayout({
   children
 }: {
@@ -88,7 +99,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={cn('scroll-smooth')}>
-      <body className='relative'>
+      <body className={cn('relative', MonaFont.variable, HubotFont.variable)}>
         <Providers>
           <Navbar />
           <main>{children}</main>

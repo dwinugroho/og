@@ -18,7 +18,7 @@ const devBaseURL = 'http://127.0.0.1:3000'
 const site: Site = {
   url: process.env.NODE_ENV === 'production' ? prodBaseURL : devBaseURL,
   ogImageHost: 'https://og.krafan.com/api',
-  title: 'Next.js 14 TypeScript Tailwind Boilerplate by Krafan',
+  title: 'Open Graph Image Generator by Krafan',
   name: 'Krafan',
   keywords: [
     'dwinugroho',
@@ -29,7 +29,7 @@ const site: Site = {
     'Dwi Nugroho',
     'Krafan'
   ],
-  titleTemplate: '- Next.js 14 TypeScript Tailwind Boilerplate by Krafan',
+  titleTemplate: '- Open Graph Image Generator by Krafan',
   description:
     'Next.js 14 boilerplate powered by TypeScript and styled with Tailwind CSS',
   githubUsername: 'dwinugroho',
