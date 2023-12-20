@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
+import Image from 'next/image'
 
 import '@/styles/globals.css'
 import { Navbar } from '@/components/organisms/navbar'
@@ -103,6 +104,50 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <main>{children}</main>
+          <div className='absolute inset-0 -z-10 overflow-x-hidden'>
+            <div className='absolute right-0 top-[-160px] -z-10 w-[100vw] sm:w-[80vw] lg:w-[40vw] '>
+              <div className='relative aspect-square w-full'>
+                <Image
+                  draggable={false}
+                  fill
+                  quality={1}
+                  src='/images/gradient-right.png'
+                  alt='Gradient background'
+                  className='opacity-80 dark:opacity-30'
+                  sizes='100%'
+                  priority
+                />
+              </div>
+            </div>
+            <div className='absolute left-0 top-1/2 -z-10 w-[100vw] -translate-y-1/2 sm:w-[80vw] lg:w-[40vw]'>
+              <div className='relative aspect-square w-full'>
+                <Image
+                  draggable={false}
+                  fill
+                  quality={1}
+                  src='/images/gradient-left.png'
+                  alt='Gradient background'
+                  className='opacity-80 dark:opacity-30'
+                  sizes='100%'
+                  priority
+                />
+              </div>
+            </div>
+            <div className='absolute bottom-0 left-1/2 -z-10 w-[100vw] sm:w-[80vw] lg:w-[40vw]'>
+              <div className='relative aspect-square w-full'>
+                <Image
+                  draggable={false}
+                  fill
+                  quality={1}
+                  src='/images/gradient-left.png'
+                  alt='Gradient background'
+                  className='opacity-80 dark:opacity-30'
+                  sizes='100%'
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </Providers>
       </body>
     </html>
