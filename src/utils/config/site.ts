@@ -12,7 +12,7 @@ type Site = {
   favicons: IconDescriptor[]
 }
 
-const prodBaseURL = 'https://nextjs-boilerplate.krafan.com'
+const prodBaseURL = 'https://og.krafan.com'
 const devBaseURL = 'http://127.0.0.1:3000'
 
 const site: Site = {
