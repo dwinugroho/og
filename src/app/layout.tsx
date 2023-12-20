@@ -35,7 +35,13 @@ export const metadata: Metadata = {
     description: site.description,
     site: '@krafanid',
     creator: '@krafanid',
-    images: [ogImage({ information: site.url })]
+    images: [
+      ogImage({
+        title: 'Open Graph Image Generator 🚀 by Krafan',
+        description: 'Generate stunning open graph image effortlessly!',
+        information: site.url.replace('https://', '')
+      })
+    ]
   },
   keywords: site.keywords,
   creator: site.githubUsername,
@@ -48,7 +54,11 @@ export const metadata: Metadata = {
     locale: 'en',
     images: [
       {
-        url: ogImage({ information: site.url }),
+        url: ogImage({
+          title: 'Open Graph Image Generator 🚀 by Krafan',
+          description: 'Generate stunning open graph image effortlessly!',
+          information: site.url.replace('https://', '')
+        }),
         width: 1200,
         height: 630,
         alt: site.description,
