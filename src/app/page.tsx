@@ -164,10 +164,11 @@ export default function Home() {
               />
               <div
                 className={cn(
-                  'relative flex aspect-[41/20] w-full overflow-hidden rounded-lg',
+                  'relative flex aspect-[41/20] w-full overflow-hidden rounded-lg shadow-[0_0_80px_rgba(7,_65,_210,_0.4)]',
                   {
                     'bg-background lg:bg-transparent': !loading,
-                    'bg-background blur-md': loading
+                    'bg-background blur-md': loading,
+                    'lg:shadow-none': !(image || loading)
                   }
                 )}
               >
@@ -228,20 +229,6 @@ export default function Home() {
                   </Tooltip.Provider>
                 </div>
               )}
-              {/* {url && (
-                <Button
-                  variant='link'
-                  className='absolute right-0 top-1/2 -translate-y-1/2'
-                  size='icon'
-                  onClick={onCopyToClipboard}
-                >
-                  <IconCopy
-                    width={20}
-                    height={20}
-                    className='text-neutral-800'
-                  />
-                </Button>
-              )} */}
             </div>
           </div>
         </div>
