@@ -30,8 +30,10 @@ export default function Home() {
   const [url, setUrl] = useState(() => '')
   const [copied, setCopied] = useState(() => false)
 
-  const onCopyToClipboard = () => {
+  const onCopyToClipboard = async () => {
     setCopied(true)
+
+    await navigator.clipboard.writeText(url)
 
     setTimeout(() => {
       setCopied(false)
