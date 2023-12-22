@@ -57,9 +57,9 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       fontFamily: {
-        default: ['var(--font-inter)', ...fontFamily.sans],
-        'monaspace-neon': ['var(--font-monaspace-neon)', ...fontFamily.sans],
-        calcom: ['var(--font-calcom)', ...fontFamily.sans]
+        default: ['var(--font-mona-sans)', ...fontFamily.sans],
+        mona: ['var(--font-mona-sans)', ...fontFamily.sans],
+        hubot: ['var(--font-hubot-sans)', ...fontFamily.sans]
       },
       keyframes: {
         'accordion-down': {

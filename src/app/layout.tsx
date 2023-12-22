@@ -94,12 +94,12 @@ export const viewport: Viewport = {
 }
 
 const MonaFont = localFont({
-  src: '../../public/fonts/mona-sans/Mona-Sans.ttf',
+  src: '../../public/fonts/mona-sans/Mona-Sans.woff2',
   variable: '--font-mona-sans'
 })
 
 const HubotFont = localFont({
-  src: '../../public/fonts/hubot-sans/Hubot-Sans.ttf',
+  src: '../../public/fonts/hubot-sans/Hubot-Sans.woff2',
   variable: '--font-hubot-sans'
 })
 

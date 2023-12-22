@@ -1,3 +1,6 @@
 export * from './button'
 export * from './image'
+export * from './input'
 export * from './logo'
+export * from './separator'
+export * from './textarea'

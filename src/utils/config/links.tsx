@@ -21,12 +21,17 @@ export const LINKEDIN_LINK: Link = {
   href: 'https://www.linkedin.com/in/dwi-nugroho'
 }
 
+export const REPO_LINK: Link = {
+  title: 'github repository',
+  href: 'https://github.com/dwinugroho/og'
+}
+
 export const HERO_LINKS: HeroLinks = [
   {
     id: 'github',
     label: 'GitHub',
     icon: <IconBrandGithub size={28} />,
-    href: 'https://github.com/DwiNugroho'
+    href: 'https://github.com/dwinugroho'
   },
   {
     id: 'instagram',

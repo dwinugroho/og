@@ -1,10 +1,13 @@
 'use client'
 
+import { IconBrandGithub } from '@tabler/icons-react'
 import Link from 'next/link'
 import React from 'react'
 
+import { REPO_LINK } from '@/utils/config/links'
 import cn from '@/utils/libs/cn'
 
+import { Separator } from '../atoms'
 import { Logo } from '../atoms'
 import { ThemeSwitcher } from '../molecules'
 
@@ -40,7 +43,17 @@ export const Navbar = () => {
         >
           <Logo width={40} height={40} />
         </Link>
-        <ThemeSwitcher />
+        <div className='flex items-center gap-2'>
+          <a
+            href={REPO_LINK.href}
+            className='mr-2 cursor-pointer'
+            rel='noopener noreferrer'
+          >
+            <IconBrandGithub width={20} height={20} />
+          </a>
+          <Separator orientation='vertical' className='h-6' />
+          <ThemeSwitcher />
+        </div>
       </div>
     </header>
   )
